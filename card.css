@@ -26,11 +26,15 @@ body > header {
 
 /* 448x642 */
 .card {
+    /* adjustable ratio */
+  --ratio: 1px;
+  
   display: grid;
   grid-template-rows: 1fr auto;
-  --ratio: 2px;
   width: calc(var(--ratio) * 224);
   height: calc(var(--ratio) * 321);
   padding: calc(var(--ratio) * 8);
   position: relative;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px #333;
 }
