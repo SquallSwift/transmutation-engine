@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card Smith</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./card.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Card Smith
+        </h1>
+
+        <h2>Generate Cards</h2>
+        <p id="sheet-query">
+            <label for="range">Range to get</label>
+            <input type="text" name="range" id="search_range" placeholder="'Process'!B2:D31"
+                pattern="(?:(?:'[\w\s\d]+')|(?:[\S]+)!)?(?:[\w\d\S]+)(?:[\w\d\S]+)?">
+            <button onclick="loadSheet()">Load Range</button>
+        </p>
+
+        <pre id="content" style="white-space: pre-wrap;"></pre>
+    </header>
+
+    <script type="text/javascript">
+
+      //input value should look like "'Sheet Name'!B2:D31"
+      function loadSheet() {
+        // get the spreadsheet id
+        // get the range
+        // sent request to google api
+        // await response
+        // process response
+        // remove all previous loaded cards if any exist
+        // append new cards
+        // display cards
+      }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
+</body>
+
+</html>
