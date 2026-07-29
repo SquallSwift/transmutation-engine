@@ -4,6 +4,11 @@
   font-family: "Nova Cut", system-ui;
   font-weight: 400;
   font-style: normal;
+  text-shadow: 2px 2px 5px #333;
+}
+
+hr {
+    border-top: 4px solid black;
 }
 
 body {
@@ -30,11 +35,51 @@ body > header {
   --ratio: 1px;
   
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr 3;
   width: calc(var(--ratio) * 224);
   height: calc(var(--ratio) * 321);
   padding: calc(var(--ratio) * 8);
   position: relative;
   border-radius: 30px;
   box-shadow: 5px 5px 10px #333;
+}
+
+.card-name {
+  font-size: 1.5em;
+  align-self: start;
+  justify-self: center;
+}
+
+.card-effect {
+  font-size: 1.3em;
+  align-self: start;
+  justify-self: center;
+}
+
+.card-renown-text {
+  font-size: 4em;
+  color: white;
+  text-shadow: 2px 2px 3px #333;
+  border-style: dashed;
+}
+
+.renown-gain {
+  height: 100px;
+  aspect-ratio: cos(30deg);
+  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  background: #8299F8;
+  place-items: center;
+  align-self: end;
+  justify-self: center;
+}
+
+.renown-cost {
+  height: 100px;
+  aspect-ratio: cos(30deg);
+  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  background: #DF6868;
+  place-items: center;
+  justify-items: center;
+  align-self: end;
+  justify-self: center;
 }
