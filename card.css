@@ -8,7 +8,7 @@
 }
 
 hr {
-    border-top: 4px solid black;
+    border-top: 3px solid black;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, 448px);
   grid-gap: 1.8rem .1rem;
-  padding: 1em;
+  padding: 0.5em;
 }
 
 body > header {
@@ -41,11 +41,17 @@ body > header {
   padding: calc(var(--ratio) * 8);
   position: relative;
   border-radius: 30px;
-  box-shadow: 5px 5px 10px #333;
+  border-style: solid;
+  margin: 1px;
+}
+
+.process {
+  height: calc(var(--ratio) * 224);
+  width: calc(var(--ratio) * 321);
 }
 
 .card-name {
-  font-size: 1.5em;
+  font-size: 1.4em;
   align-self: start;
   justify-self: center;
 }
@@ -57,14 +63,14 @@ body > header {
 }
 
 .card-renown-text {
-  font-size: 4em;
+  font-size: 3em;
   color: white;
   text-shadow: 2px 2px 3px #333;
-  border-style: dashed;
+  margin-top: 10px;
 }
 
 .renown-gain {
-  height: 100px;
+  height: 80px;
   aspect-ratio: cos(30deg);
   clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
   background: #8299F8;
@@ -74,7 +80,7 @@ body > header {
 }
 
 .renown-cost {
-  height: 100px;
+  height: 80px;
   aspect-ratio: cos(30deg);
   clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
   background: #DF6868;
@@ -82,4 +88,26 @@ body > header {
   justify-items: center;
   align-self: end;
   justify-self: center;
+}
+
+.product-picture {
+  /* adjustable ratio */
+  --ratio: 1px;
+
+  width: calc(var(--ratio) * 120);
+  height: calc(var(--ratio) * 120);
+  padding: calc(var(--ratio) * 6);
+  border-style: solid;
+  place-self: center;
+  margin: 10px;
+}
+
+.process-picture {
+    /* adjustable ratio */
+  --ratio: 2px;
+
+  width: calc(var(--ratio) * 140);
+  height: calc(var(--ratio) * 40);
+  border-style: solid;
+  place-self: center;
 }
