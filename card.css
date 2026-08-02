@@ -111,3 +111,13 @@ body > header {
   border-style: solid;
   place-self: center;
 }
+
+.event-picture {
+    /* adjustable ratio */
+  --ratio: 2px;
+
+  width: calc(var(--ratio) * 110);
+  height: calc(var(--ratio) * 40);
+  border-style: solid;
+  place-self: center;
+}
