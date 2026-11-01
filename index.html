@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Card Smith</title>
+    <title>Transmutation Engine Card Smith</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./card.css">
 </head>
@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>
-            Card Smith
+            Transmutation Engine Card Smith
         </h1>
 
         <!--Add buttons to initiate auth sequence and sign out-->
@@ -21,9 +21,10 @@
 
         <h2>Generate Cards</h2>
         <p id="sheet-query">
-            <label for="range">Range to get</label>
-            <input type="text" name="range" id="search_range" placeholder="'Events'!C2:D7"
+            <label id="range">Range to get
+                <input type="text" name="range" id="search_range" placeholder="'Events'!C2:D7"
                 pattern="(?:(?:'[\w\s\d]+')|(?:[\S]+)!)?(?:[\w\d\S]+)(?:[\w\d\S]+)?">
+            </label>
             <button onclick="loadSheet()">Load Range</button>
         </p>
 
@@ -98,11 +99,11 @@
     </header>
 
     
-    <script type="text/javascript" src="auth.js">
+    <script type="text/javascript">
 
       // TODO(developer): Set to client ID and API key from the Developer Console
-      //const CLIENT_ID = JSON.parse(auth.jsonCLIENT_ID);
-      //const API_KEY = '<YOUR_API_KEY>';
+      //  const CLIENT_ID = 'Client ID Here';
+      //  const API_KEY = 'API key here';
       
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';

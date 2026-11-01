@@ -430,3 +430,4 @@ FodyWeavers.xsd
 
 # Auth
 auth.js
+auth.json
