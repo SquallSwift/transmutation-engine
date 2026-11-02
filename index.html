@@ -21,10 +21,8 @@
 
         <h2>Generate Cards</h2>
         <p id="sheet-query">
-            <label id="range">Range to get
                 <input type="text" name="range" id="search_range" placeholder="'Events'!C2:D7"
                 pattern="(?:(?:'[\w\s\d]+')|(?:[\S]+)!)?(?:[\w\d\S]+)(?:[\w\d\S]+)?">
-            </label>
             <button onclick="loadSheet()">Load Range</button>
         </p>
 
@@ -171,7 +169,6 @@
           }
           document.getElementById('signout_button').style.visibility = 'visible';
           document.getElementById('authorize_button').innerText = 'Refresh';
-          await listMajors();
         };
 
         if (gapi.client.getToken() === null) {
@@ -207,11 +204,11 @@
       async function loadSheet() {
         let response;
 
-        const input = document.querySelector("#search_range");
+        const input = document.querySelector("#search_range").value;
 
         try {
           response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetID: '1LhtMG9kChhOFR6Upqxm955IF2jBM8BchZ4NSBKF3uoY',
+            spreadsheetId: '1LhtMG9kChhOFR6Upqxm955IF2jBM8BchZ4NSBKF3uoY',
             range: input
           })
         } catch (err) {
@@ -221,13 +218,13 @@
         const retrievedData = response.result;
 
         // display a message if no data was found
-         if (!range || !range.values || range.values.length == 0) {
+         if (!retrievedData || !retrievedData.values || retrievedData.values.length == 0) {
           document.getElementById('content').innerText = 'No values found.';
           return;
         }
 
         // display retrieved data for debug purposes. TODO: replace with card creation
-        const output = range.values;
+        const output = retrievedData.values;
         document.getElementById('content').innerText = output;
 
         // process response
