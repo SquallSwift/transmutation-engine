@@ -26,15 +26,23 @@ const toolDataColumns = {
   "renown": 6,
 };
 
-const fileName = 'Cards';
+const fileURL = 'https://docs.google.com/spreadsheets/d/1LhtMG9kChhOFR6Upqxm955IF2jBM8BchZ4NSBKF3uoY/edit?usp=sharing&output=tsv';
 let cardDatabase = {};
 
 //fetch google sheets file as a tsv
-fetch(fileName).then(x => x.text()).then(processTSV).then(() => {});
+fetch(fileURL).then(x => x.text()).then(processTSV).then(() => {});
+
+function processRow(rowValues) {
+  let cardData = {};
+  for (let dataName in dataColumns) {
+    cardData[dataName] = rowValues[dataColumns[dataName]];
+  }
+  return cardData;
+}
 
 //process tsv file
 function processTSV(data) {
-  // each row needs to be split the end-of-line character
+  // each row needs to be split by an end-of-line character
   let rows = data.split('\n');
   let id = 0;
   for (let i = 2; i < rows.length; i++) {
@@ -52,6 +60,6 @@ function processTSV(data) {
 function generateCard(cardData) {
   let name = $(`p`, `name`, cardData[`name`]);
 
-  // provess different columns depending on the name of the sheet itself?
+  // process different columns depending on the name of the sheet itself?
   // switch for process, product, grant, tool
 }

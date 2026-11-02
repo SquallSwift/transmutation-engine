@@ -13,6 +13,7 @@ hr {
 
 body {
   background: white;
+  color: #333;
   display: grid;
   grid-template-columns: repeat(auto-fit, 448px);
   grid-gap: 1.8rem .1rem;
@@ -27,6 +28,11 @@ body > header {
   background: white;
   color: #333;
   grid-column: 1 / -1;
+}
+
+button {
+  color: #333;
+  border:#333;
 }
 
 /* 448x642 */
