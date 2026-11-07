@@ -75,52 +75,52 @@ function processRow(rowValues, cardType) {
 }
 
 //process tsv file
-function processTSV(data, cardType) {
+function processTSV(retrievedData, cardType) {
   // each row needs to be split by an end-of-line character
-  let rows = data.split('\n');
+  let rows = retrievedData.split("\n");
   let id = 0;
   for (let i = 2; i < rows.length; i++) {
       let row = rows[i];
-      let cardData = processRow(row.split('\t'), cardType);
+      let cardData = processRow(row.split("\t"), cardType);
       cardDatabase[id++] = cardData;
   }
   
   for (let card in cardDatabase) {
     document.getElementById('debug').innerText = card;
     
-    //card = generateCard(cardDatabase[cardName], cardType);
-    //document.body.appendChild(card);
+    card = generateCard(cardDatabase, cardType);
+    document.body.appendChild(card);
   }
 }
 
 function generateCard(cardData, cardType) {
-  let name = $(`p`, `name`, cardData[`name`]);
+  let name = cardData[`name`];
   let effect;
   let renown;
 
   switch(cardType) {
     case "Events":
-      effect = $(`p`, `effect`, cardData[`effect`]);
+      effect = cardData[`effect`];
       generateEventCard(name, effect);
       break;
     case "Grant":
-      effect = $(`p`, `effect`, cardData[`effect`]);
-      renown = $(`p`, `renown`, cardData[`renown`]);
+      effect = cardData[`effect`];
+      renown = cardData[`renown`];
       generateGrantCard(name, effect, renown);
       break;
     case "Process":
-      effect = $(`p`, `effect`, cardData[`effect`]);
+      effect = cardData[`effect`];
       generateProcessCard(name, effect);
       break;
     case "Product":
-      let shorthand = $(`p`, `shorthand`, cardData[`shorthand`]);
-      renown = $(`p`, `renown`, cardData[`renown`]);
+      let shorthand = cardData[`shorthand`];
+      renown = cardData[`renown`];
       generateProductCard(name, shorthand, renown);
       break;
     case "Tool":
-      effect = $(`p`, `effect`, cardData[`effect`]);
-      let eternal = $(`p`, `eternal`, cardData[`eternal`]);
-      renown = $(`p`, `renown`, cardData[`renown`]);
+      effect = cardData[`effect`];
+      let eternal = cardData[`eternal`];
+      renown = cardData[`renown`];
       generateToolCard(name, effect, eternal, renown);
       break;
     default:
@@ -142,6 +142,12 @@ function generateEventCard(name, effect) {
           </div>
         </div>
   */
+
+  let eventPicture = $(`div`, `event-picture`);
+  let cardName = $(`div`, `card-name`, name);
+  let cardEffect = $(`div`, `card-effect`, effect);
+  let card = $(`div`, `card`, [eventPicture, cardName, cardEffect]);
+  return card;
 }
 
 function generateGrantCard(name, effect, renown) {
