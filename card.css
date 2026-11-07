@@ -68,6 +68,12 @@ button {
   justify-self: center;
 }
 
+.eternal-tag {
+  font-size: 1.4em;
+  align-self: start;
+  justify-self: center;
+}
+
 .card-renown-text {
   font-size: 3em;
   color: white;
