@@ -152,25 +152,39 @@ function generateProductCard(name, shorthand, renown) {
 }
 
 function generateToolCard(name, effect, eternal, renown) {
-  // this method needs to build the following:
-  /*
-        <div class="card">
-          <div class="card-name">
-            Tool Name
-            <hr/>
-          </div>
-          <div class="eternal-tag">
-            Eternal
-            <hr/>
-          </div>
-          <div class="card-effect">
-            Card Effect
-          </div>
-          <div class="renown-cost">
-            <div class="card-renown-text">
-              12
-            </div>
-          </div>
-        </div>
-  */
+  // example: 'Tool'!C2:F27
+
+  // create card elements
+  const cardName = document.createElement("div");
+  const cardEternalTag = document.createElement("div");
+  const cardEffect = document.createElement("div");
+  const cardRenownSymbol = document.createElement("div");
+  const cardRenownText = document.createElement("div");
+  
+  // insert data from passed variables
+  cardName.innerText = name;
+  cardEffect.innerText = effect;
+  cardRenownText.innerText = renown;
+  
+  // append card elements to the card
+  const cardContent = document.createElement("div");
+  cardContent.appendChild(cardName);
+
+  if(eternal == "TRUE") {
+    cardEternalTag.innerText = "Eternal";
+    cardContent.appendChild(cardEternalTag);
+    cardEternalTag.setAttribute("class","eternal-tag")
+  }
+
+  cardContent.appendChild(cardEffect);
+  cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
+
+  const cardDisplayArea = document.getElementById("card-display-area");
+  cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
+
+  cardContent.setAttribute("class","card");
+  cardName.setAttribute("class","card-name");
+  cardEffect.setAttribute("class","card-effect");
+  cardRenownSymbol.setAttribute("class","renown-cost");
+  cardRenownText.setAttribute("class","card-renown-text");
 }
