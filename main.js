@@ -46,7 +46,7 @@ function generateCard(cardData, cardType) {
 }
 
 function generateEventCard(name, effect) {
-  // create card card elements
+  // create card elements
   const eventPicture = document.createElement("div");
   const cardName = document.createElement("div");
   const cardEffect = document.createElement("div");
@@ -61,10 +61,9 @@ function generateEventCard(name, effect) {
   cardContent.appendChild(cardName);
   cardContent.appendChild(cardEffect);
 
-  document.getElementById('debug').innerText = "Finished generating. Appending card.";
-
   const cardDisplayArea = document.getElementById("card-display-area");
   cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
+
   cardContent.setAttribute("class","card");
   eventPicture.setAttribute("class","event-picture");
   cardName.setAttribute("class","card-name");
@@ -72,23 +71,31 @@ function generateEventCard(name, effect) {
 }
 
 function generateGrantCard(name, effect, renown) {
-  // this method needs to build the following:
-  /*
-        <div class="card">
-          <div class="card-name">
-            Grant Name
-            <hr/>
-          </div>
-          <div class="card-effect">
-            Card Effect
-          </div>
-          <div class="renown-gain">
-            <div class="card-renown-text">
-              12
-            </div>
-          </div>
-        </div>
-  */
+  // create card elements
+  const cardName = document.createElement("div");
+  const cardEffect = document.createElement("div");
+  const cardRenownSymbol = document.createElement("div");
+  const cardRenownText = document.createElement("div");
+  
+  // insert data from passed variables
+  cardName.innerText = name;
+  cardEffect.innerText = effect;
+  cardRenownText.innerText = renown;
+  
+  // append card elements to the card
+  const cardContent = document.createElement("div");
+  cardContent.appendChild(cardName);
+  cardContent.appendChild(cardEffect);
+  cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
+
+  const cardDisplayArea = document.getElementById("card-display-area");
+  cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
+
+  cardContent.setAttribute("class","card");
+  cardName.setAttribute("class","card-name");
+  cardEffect.setAttribute("class","card-effect");
+  cardRenownSymbol.setAttribute("class","renown-gain");
+  cardRenownText.setAttribute("class","card-renown-text");
 }
 
 function generateProcessCard(name, effect) {
