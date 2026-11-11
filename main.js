@@ -17,12 +17,29 @@ function processTSV(retrievedData, cardType) {
 function generateCard(cardData, cardType) {
   let name = cardData[0];
   let effect;
+  let renown;
 
   switch(cardType) {
     case "Events":
       effect = cardData[1];
       generateEventCard(name, effect);
       break;
+    case "Grant":
+      effect = cardData[1];
+      renown = cardData[2];
+      generateGrantCard(name, effect, renown);
+    case "Process":
+      effect = cardData[1];
+      generateProcessCard(name, effect);
+    case "Product":
+      let shorthand = cardData[1];
+      renown = cardData[2];
+      generateProductCard(name, shorthand, renown);
+    case "Tool":
+      effect = cardData[1];
+      let eternal = cardData[2];
+      renown = cardData[3];
+      generateToolCard(name, effect, eternal, renown);
     default:
       document.getElementById('debug').innerText = "Card Type not recognised.";
   }
