@@ -124,21 +124,31 @@ function generateProcessCard(name, effect) {
 }
 
 function generateProductCard(name, shorthand, renown) {
-  // this method needs to build the following:
-  /*
-        <div class="card">
-          <div class="product-picture"></div>
-          <div class="card-name">
-            Product Name
-            <hr/>
-          </div>
-          <div class="renown-gain">
-            <div class="card-renown-text">
-              12
-            </div>
-          </div>
-        </div>
-  */
+  // create card elements
+  const cardName = document.createElement("div");
+  const cardPicture = document.createElement("div");
+  const cardRenownSymbol = document.createElement("div");
+  const cardRenownText = document.createElement("div");
+  
+  // insert data from passed variables
+  cardName.innerText = name;
+  cardPicture.innerText = shorthand; // TO DO: Create a method to convert shorthand into coded image
+  cardRenownText.innerText = renown;
+  
+  // append card elements to the card
+  const cardContent = document.createElement("div");
+  cardContent.appendChild(cardPicture);
+  cardContent.appendChild(cardName);
+  cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
+
+  const cardDisplayArea = document.getElementById("card-display-area");
+  cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
+
+  cardContent.setAttribute("class","card");
+  cardPicture.setAttribute("class","product-picture");
+  cardName.setAttribute("class","card-name");
+  cardRenownSymbol.setAttribute("class","renown-gain");
+  cardRenownText.setAttribute("class","card-renown-text");
 }
 
 function generateToolCard(name, effect, eternal, renown) {
