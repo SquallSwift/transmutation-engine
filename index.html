@@ -26,9 +26,9 @@
             <button onclick="loadSheet()">Load Range</button>
         </p>
 
-        <pre id="content" style="white-space: pre-wrap;"></pre>
-
         <pre id="debug" style="white-space: pre-wrap;"></pre>
+
+        <div id="card-display-area">Cards Display Here.</div>
 
         <h2>Card Preview</h2>
 
@@ -107,8 +107,6 @@
     <script type="text/javascript">
 
       // TODO(developer): Set to client ID and API key from the Developer Console
-      //const CLIENT_ID = 
-      //const API_KEY = 
       
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
@@ -236,13 +234,13 @@
         // display retrieved data for debug purposes. TODO: replace with card creation
         const output = retrievedData.values;
 
+        // document.getElementById('debug').innerText = retrievedData.values;
+
+        // TO DO: remove all previous loaded cards if any exist
+
         // process response
         // call processTSV from main
-        processTSV(retrievedData.values, cardType);
-
-        // remove all previous loaded cards if any exist
-        // append new cards
-        // display cards
+        processTSV(retrievedData, cardType);
       }
 
     </script>
