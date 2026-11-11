@@ -28,24 +28,30 @@ function generateCard(cardData, cardType) {
       effect = cardData[1];
       renown = cardData[2];
       generateGrantCard(name, effect, renown);
+      break;
     case "Process":
       effect = cardData[1];
       generateProcessCard(name, effect);
+      break;
     case "Product":
       let shorthand = cardData[1];
       renown = cardData[2];
       generateProductCard(name, shorthand, renown);
+      break;
     case "Tool":
       effect = cardData[1];
       let eternal = cardData[2];
       renown = cardData[3];
       generateToolCard(name, effect, eternal, renown);
+      break;
     default:
       document.getElementById('debug').innerText = "Card Type not recognised.";
   }
 }
 
 function generateEventCard(name, effect) {
+  // example: 'Event'!C2:D8
+
   // create card elements
   const cardPicture = document.createElement("div");
   const cardName = document.createElement("div");
@@ -71,6 +77,8 @@ function generateEventCard(name, effect) {
 }
 
 function generateGrantCard(name, effect, renown) {
+  // example: 'Process'!C2:E12
+
   // create card elements
   const cardName = document.createElement("div");
   const cardEffect = document.createElement("div");
@@ -99,6 +107,8 @@ function generateGrantCard(name, effect, renown) {
 }
 
 function generateProcessCard(name, effect) {
+  // example: 'Process'!C2:D10
+
   // create card elements
   const cardPicture = document.createElement("div");
   const cardName = document.createElement("div");
@@ -124,6 +134,8 @@ function generateProcessCard(name, effect) {
 }
 
 function generateProductCard(name, shorthand, renown) {
+  // example: 'Product'!C2:E6
+
   // create card elements
   const cardName = document.createElement("div");
   const cardPicture = document.createElement("div");
