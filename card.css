@@ -47,6 +47,7 @@ button {
   border-radius: 30px;
   border-style: solid;
   margin: 1px;
+  background-color: #DCEAE5;
 }
 
 .process {
@@ -130,4 +131,91 @@ button {
   height: calc(var(--ratio) * 40);
   border-style: solid;
   place-self: center;
+}
+
+.engine-space {
+  position: relative;
+  height: 80px;
+  aspect-ratio: cos(30deg);
+  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  background: #3B3C40;
+  top: 5px;
+}
+
+.engine-space-border {
+  height: 90px;
+  aspect-ratio: cos(30deg);
+  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  background: #171717;
+  place-items: center;
+  justify-items: center;
+  align-self: end;
+  justify-self: center;
+}
+
+.elementCircle {
+  height: 70px;
+  width: 70px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 3.8em;
+  align-self: start;
+  justify-self: center;
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+
+.salt {
+  background-color: #191919;
+  color: #fff;
+}
+
+.quicksilver {
+  background-color: #350E45;
+  color: #fff;
+}
+
+/* TODO: cardinals */
+.fire {
+  background-color: #bbb;
+}
+
+.air {
+  background-color: #bbb;
+}
+
+.water {
+  background-color: #bbb;
+}
+
+.earth {
+  background-color: #bbb;
+}
+
+/* metals */
+.lead {
+  background-color: #bbb;
+}
+
+.tin {
+  background-color: #bbb;
+}
+
+.iron {
+  background-color: #bbb;
+}
+
+.copper {
+  background-color: #bbb;  
+}
+
+.silver {
+  background-color: #bbb;  
+}
+
+.gold {
+  background-color: #bbb;  
 }

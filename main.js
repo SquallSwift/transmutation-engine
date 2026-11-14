@@ -203,3 +203,20 @@ function generateToolCard(name, effect, eternal, renown) {
   cardRenownSymbol.setAttribute("class","renown-cost");
   cardRenownText.setAttribute("class","card-renown-text");
 }
+
+function convertShorthandToImage(shorthand) {
+  // Shorthand will be written with the centre element's letter, followed by a dash, 
+  // followed by each position that connects to it clockwise, starting from the top left position. 
+  // Spaces mean an empty space.
+
+  // grab each element of the shorthand into its own variable
+  let centralElement = shorthand[0];
+  let topLeftElement = shorthand[2];
+  let topRightElement = shorthand[3];
+  let rightElement = shorthand[4];
+  let bottomRightElement = shorthand[5];
+  let bottomLeftElement = shorthand[6];
+  let leftElement = shorthand[7];
+
+  // dynamically create each element as a coloured circle
+}
