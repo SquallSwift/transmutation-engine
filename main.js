@@ -50,7 +50,7 @@ function generateCard(cardData, cardType) {
 }
 
 function generateEventCard(name, effect) {
-  // example: 'Event'!C2:D8
+  // example: 'Events'!C2:D8
 
   // create card elements
   const cardPicture = document.createElement("div");

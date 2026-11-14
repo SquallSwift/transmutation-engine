@@ -11,15 +11,6 @@ hr {
     border-top: 3px solid black;
 }
 
-body {
-  background: white;
-  color: #333;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 448px);
-  grid-gap: 1.8rem .1rem;
-  padding: 0.5em;
-}
-
 body > header {
   padding: 1rem;
   font-family: "Nova Cut", system-ui;
@@ -27,7 +18,12 @@ body > header {
   font-style: normal;
   background: white;
   color: #333;
-  grid-column: 1 / -1;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 272px);
+  grid-gap: 1.8rem .1rem;
 }
 
 button {
@@ -39,11 +35,9 @@ button {
 .card {
     /* adjustable ratio */
   --ratio: 1px;
-  
   display: grid;
-  grid-template-rows: 1fr 3;
-  width: calc(var(--ratio) * 224);
-  height: calc(var(--ratio) * 321);
+  width: calc(var(--ratio) * 250);
+  height: calc(var(--ratio) * 350);
   padding: calc(var(--ratio) * 8);
   position: relative;
   border-radius: 30px;
@@ -52,8 +46,8 @@ button {
 }
 
 .process {
-  height: calc(var(--ratio) * 224);
-  width: calc(var(--ratio) * 321);
+  height: calc(var(--ratio) * 250);
+  width: calc(var(--ratio) * 350);
 }
 
 .card-name {
@@ -66,6 +60,7 @@ button {
   font-size: 1.0em;
   align-self: start;
   justify-self: center;
+  text-align: center;
 }
 
 .eternal-tag {
