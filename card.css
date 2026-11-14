@@ -23,7 +23,11 @@ body > header {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 272px);
-  grid-gap: 1.8rem .1rem;
+}
+
+.card-grid-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 373px);
 }
 
 button {
@@ -101,20 +105,19 @@ button {
   /* adjustable ratio */
   --ratio: 1px;
 
-  width: calc(var(--ratio) * 120);
-  height: calc(var(--ratio) * 120);
+  width: calc(var(--ratio) * 180);
+  height: calc(var(--ratio) * 180);
   padding: calc(var(--ratio) * 6);
   border-style: solid;
   place-self: center;
-  margin: 10px;
 }
 
 .process-picture {
     /* adjustable ratio */
   --ratio: 2px;
 
-  width: calc(var(--ratio) * 140);
-  height: calc(var(--ratio) * 40);
+  width: calc(var(--ratio) * 160);
+  height: calc(var(--ratio) * 60);
   border-style: solid;
   place-self: center;
 }

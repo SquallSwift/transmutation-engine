@@ -24,21 +24,21 @@ function generateCard(cardData, cardType) {
       effect = cardData[1];
       generateEventCard(name, effect);
       break;
-    case "Grant":
+    case "Grants":
       effect = cardData[1];
       renown = cardData[2];
       generateGrantCard(name, effect, renown);
       break;
-    case "Process":
+    case "Processes":
       effect = cardData[1];
       generateProcessCard(name, effect);
       break;
-    case "Product":
+    case "Products":
       let shorthand = cardData[1];
       renown = cardData[2];
       generateProductCard(name, shorthand, renown);
       break;
-    case "Tool":
+    case "Tools":
       effect = cardData[1];
       let eternal = cardData[2];
       renown = cardData[3];
@@ -77,7 +77,7 @@ function generateEventCard(name, effect) {
 }
 
 function generateGrantCard(name, effect, renown) {
-  // example: 'Process'!C2:E12
+  // example: 'Grants'!C2:E12
 
   // create card elements
   const cardName = document.createElement("div");
@@ -107,7 +107,7 @@ function generateGrantCard(name, effect, renown) {
 }
 
 function generateProcessCard(name, effect) {
-  // example: 'Process'!C2:D10
+  // example: 'Processes'!C2:D10
 
   // create card elements
   const cardPicture = document.createElement("div");
@@ -127,6 +127,9 @@ function generateProcessCard(name, effect) {
   const cardDisplayArea = document.getElementById("card-display-area");
   cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
 
+  const cardGrid = document.getElementById("card-grid");
+  cardGrid.setAttribute("class", "card-grid-process");
+
   cardContent.setAttribute("class","card process");
   cardPicture.setAttribute("class","process-picture");
   cardName.setAttribute("class","card-name");
@@ -134,7 +137,7 @@ function generateProcessCard(name, effect) {
 }
 
 function generateProductCard(name, shorthand, renown) {
-  // example: 'Product'!C2:E6
+  // example: 'Products'!C2:E6
 
   // create card elements
   const cardName = document.createElement("div");
@@ -164,7 +167,7 @@ function generateProductCard(name, shorthand, renown) {
 }
 
 function generateToolCard(name, effect, eternal, renown) {
-  // example: 'Tool'!C2:F27
+  // example: 'Tools'!C2:F27
 
   // create card elements
   const cardName = document.createElement("div");
