@@ -81,20 +81,42 @@
         </div>
 
         <div class="card">
-          <div class="product-picture">
-            <div class="engine-space-border">
-              <div class="engine-space"></div>
-            </div>
-            <div class="engine-space-border">
-              <div class="engine-space">
-                <div class="elementCircle quicksilver">Q</div>
+          <div class="engine-container">
+            <div class= "engine-container-row">
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
+              </div>
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
               </div>
             </div>
-            
+
+            <div class= "engine-container-row">
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
+              </div>
+              <div class="engine-space-border">
+                <div class="engine-space">
+                  <div class="elementCircle quicksilver">Q</div>
+                </div>
+              </div>
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
+              </div>
+            </div>
+
+            <div class= "engine-container-row">
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
+              </div>
+              <div class="engine-space-border">
+                <div class="engine-space"></div>
+              </div>
+            </div>
           </div>
+          
           <div class="card-name">
             Product Name
-            <hr/>
           </div>
           <div class="renown-gain">
             <div class="card-renown-text">
@@ -246,12 +268,7 @@
         // display retrieved data for debug purposes. TODO: replace with card creation
         const output = retrievedData.values;
 
-        // document.getElementById('debug').innerText = retrievedData.values;
-
-        // TO DO: remove all previous loaded cards if any exist
-
         // process response
-        // call processTSV from main
         processTSV(retrievedData, cardType);
       }
 

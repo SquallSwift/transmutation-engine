@@ -133,24 +133,37 @@ button {
   place-self: center;
 }
 
+.engine-container {
+  display: grid;
+}
+
+.engine-container-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: -32px;
+}
+
 .engine-space {
   position: relative;
   height: 80px;
   aspect-ratio: cos(30deg);
-  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  corner-shape: bevel;
   background: #3B3C40;
   top: 5px;
+  border-radius: 50% / 25%;
 }
 
 .engine-space-border {
   height: 90px;
   aspect-ratio: cos(30deg);
-  clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+  corner-shape: bevel;
   background: #171717;
   place-items: center;
   justify-items: center;
   align-self: end;
   justify-self: center;
+  border-radius: 50% / 25%;
 }
 
 .elementCircle {
@@ -180,42 +193,42 @@ button {
 
 /* TODO: cardinals */
 .fire {
-  background-color: #bbb;
+  background-color: #D96769;
 }
 
 .air {
-  background-color: #bbb;
+  background-color: #C79BF6;
 }
 
 .water {
-  background-color: #bbb;
+  background-color: #3BE6F9;
 }
 
 .earth {
-  background-color: #bbb;
+  background-color: #A97A44;
 }
 
 /* metals */
 .lead {
-  background-color: #bbb;
+  background-color: #9897A1;
 }
 
 .tin {
-  background-color: #bbb;
+  background-color: #AFF6AF;
 }
 
 .iron {
-  background-color: #bbb;
+  background-color: #A1B4F4;
 }
 
 .copper {
-  background-color: #bbb;  
+  background-color: #D9A467;  
 }
 
 .silver {
-  background-color: #bbb;  
+  background-color: #E8F2F0;  
 }
 
 .gold {
-  background-color: #bbb;  
+  background-color: #EEE076;  
 }
