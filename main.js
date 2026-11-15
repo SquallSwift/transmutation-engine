@@ -141,18 +141,44 @@ function generateProductCard(name, shorthand, renown) {
 
   // create card elements
   const cardName = document.createElement("div");
-  const cardPicture = document.createElement("div");
+  const engineTopRow = document.createElement("div");
+  engineTopRow.setAttribute("class","engine-container-row");
+
+  const engineSpaceBorderLeft = document.createElement("div");
+  engineSpaceBorderLeft.setAttribute("class","engine-space-border");
+  const engineSpaceBorderMiddle = engineSpaceBorderLeft.cloneNode(true);
+  const engineSpaceBorderRight = engineSpaceBorderLeft.cloneNode(true);
+
+  const engineSpaceLeft = document.createElement("div");
+  engineSpaceLeft.setAttribute("class","engine-space");
+  const engineSpaceMiddle = engineSpaceLeft.cloneNode(true);
+  const engineSpaceRight = engineSpaceLeft.cloneNode(true);
+
   const cardRenownSymbol = document.createElement("div");
   const cardRenownText = document.createElement("div");
   
   // insert data from passed variables
   cardName.innerText = name;
-  cardPicture.innerText = shorthand; // TO DO: Create a method to convert shorthand into coded image
   cardRenownText.innerText = renown;
-  
+
+  // append engine spaces together
+  engineSpaceBorderLeft.appendChild(engineSpaceLeft);
+  engineSpaceBorderMiddle.appendChild(engineSpaceMiddle);
+  engineSpaceBorderRight.appendChild(engineSpaceRight);
+
+  engineTopRow.appendChild(engineSpaceBorderLeft);
+  engineTopRow.appendChild(engineSpaceBorderMiddle);
+
+  const engineMiddleRow = engineTopRow.cloneNode(true);
+  engineMiddleRow.appendChild(engineSpaceBorderRight);
+
+  const engineBottomRow = engineTopRow.cloneNode(true);
+
   // append card elements to the card
   const cardContent = document.createElement("div");
-  cardContent.appendChild(cardPicture);
+  cardContent.appendChild(engineTopRow);
+  cardContent.appendChild(engineMiddleRow);
+  cardContent.appendChild(engineBottomRow);
   cardContent.appendChild(cardName);
   cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
 
@@ -160,7 +186,6 @@ function generateProductCard(name, shorthand, renown) {
   cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
 
   cardContent.setAttribute("class","card");
-  cardPicture.setAttribute("class","product-picture");
   cardName.setAttribute("class","card-name");
   cardRenownSymbol.setAttribute("class","renown-gain");
   cardRenownText.setAttribute("class","card-renown-text");
