@@ -70,8 +70,10 @@ button {
 
 .eternal-tag {
   font-size: 1.4em;
-  align-self: start;
   justify-self: center;
+  align-self: center;
+  text-align: center;
+  float: left;
 }
 
 .card-renown-text {
@@ -133,8 +135,16 @@ button {
   place-self: center;
 }
 
+.tool-card-footer {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(2, 100px);
+}
+
 .engine-container {
   display: grid;
+  margin-bottom: 40px;
 }
 
 .engine-container-row {

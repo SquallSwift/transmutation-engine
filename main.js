@@ -196,8 +196,9 @@ function generateToolCard(name, effect, eternal, renown) {
 
   // create card elements
   const cardName = document.createElement("div");
-  const cardEternalTag = document.createElement("div");
   const cardEffect = document.createElement("div");
+  const toolCardFooter = document.createElement("div");
+  const cardEternalTag = document.createElement("div");
   const cardRenownSymbol = document.createElement("div");
   const cardRenownText = document.createElement("div");
   
@@ -205,19 +206,20 @@ function generateToolCard(name, effect, eternal, renown) {
   cardName.innerText = name;
   cardEffect.innerText = effect;
   cardRenownText.innerText = renown;
+
+  if(eternal == "TRUE") {
+    cardEternalTag.innerText = "Eternal";
+  } else {
+    cardEternalTag.innerText = "Once"
+  }
   
   // append card elements to the card
   const cardContent = document.createElement("div");
   cardContent.appendChild(cardName);
-
-  if(eternal == "TRUE") {
-    cardEternalTag.innerText = "Eternal";
-    cardContent.appendChild(cardEternalTag);
-    cardEternalTag.setAttribute("class","eternal-tag")
-  }
-
   cardContent.appendChild(cardEffect);
-  cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
+  toolCardFooter.appendChild(cardEternalTag);
+  toolCardFooter.appendChild(cardRenownSymbol).appendChild(cardRenownText);
+  cardContent.appendChild(toolCardFooter);
 
   const cardDisplayArea = document.getElementById("card-display-area");
   cardDisplayArea.parentNode.insertBefore(cardContent, cardDisplayArea);
@@ -225,6 +227,8 @@ function generateToolCard(name, effect, eternal, renown) {
   cardContent.setAttribute("class","card");
   cardName.setAttribute("class","card-name");
   cardEffect.setAttribute("class","card-effect");
+  toolCardFooter.setAttribute("class","tool-card-footer");
+  cardEternalTag.setAttribute("class","eternal-tag")
   cardRenownSymbol.setAttribute("class","renown-cost");
   cardRenownText.setAttribute("class","card-renown-text");
 }
