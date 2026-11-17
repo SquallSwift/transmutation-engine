@@ -1,33 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap');
 
-.nova-cut-regular {
-  font-family: "Nova Cut", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  text-shadow: 2px 2px 5px #333;
-}
-
-hr {
-    border-top: 3px solid black;
-}
-
 body > header {
   padding: 1rem;
   font-family: "Nova Cut", system-ui;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   background: white;
   color: #333;
+  justify-items: center;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 272px);
+  justify-self: normal;
 }
 
 .card-grid-process {
   display: grid;
   grid-template-columns: repeat(auto-fit, 373px);
+  justify-self: normal;
 }
 
 button {
@@ -37,28 +29,33 @@ button {
 
 /* 448x642 */
 .card {
-    /* adjustable ratio */
-  --ratio: 1px;
   display: grid;
-  width: calc(var(--ratio) * 250);
-  height: calc(var(--ratio) * 350);
-  padding: calc(var(--ratio) * 8);
+  width: 250px;
+  height: 350px;
+  padding-top: 8px;
   position: relative;
-  border-radius: 30px;
+  border-radius: 15px;
   border-style: solid;
   margin: 1px;
-  background-color: #DCEAE5;
+  background-color: #e0c9bc;
 }
 
 .process {
-  height: calc(var(--ratio) * 250);
-  width: calc(var(--ratio) * 350);
+  height: 250px;
+  width: 350px;
 }
 
 .card-name {
   font-size: 1.4em;
   align-self: start;
   justify-self: center;
+  border-top: #e0c9bc;
+  border-right: #e0c9bc;
+  border-left: #e0c9bc;
+  border-bottom: #171717;
+  border-style: solid;
+  border-radius: 15%;
+  font-weight: 1000;
 }
 
 .card-effect {
@@ -104,35 +101,23 @@ button {
   justify-self: center;
 }
 
-.product-picture {
-  /* adjustable ratio */
-  --ratio: 1px;
-
-  width: calc(var(--ratio) * 180);
-  height: calc(var(--ratio) * 180);
-  padding: calc(var(--ratio) * 6);
+.picture {
+  height: 100px;
   border-style: solid;
-  place-self: center;
+  place-self: start;
+  background: #585756;
+  border-color: #585756;
+  color: #fff;
+  text-align: center;
+  align-content: center;
 }
 
 .process-picture {
-    /* adjustable ratio */
-  --ratio: 2px;
-
-  width: calc(var(--ratio) * 160);
-  height: calc(var(--ratio) * 60);
-  border-style: solid;
-  place-self: center;
+  width: 344px;
 }
 
 .event-picture {
-    /* adjustable ratio */
-  --ratio: 2px;
-
-  width: calc(var(--ratio) * 110);
-  height: calc(var(--ratio) * 40);
-  border-style: solid;
-  place-self: center;
+  width: 244px;
 }
 
 .tool-card-footer {
@@ -140,6 +125,7 @@ button {
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(2, 100px);
+  align-self: end;
 }
 
 .engine-container {

@@ -13,17 +13,16 @@
             Transmutation Engine Card Smith
         </h1>
 
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
-        <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-
-        <pre id="content" style="white-space: pre-wrap;"></pre>
-
+        <p>
+          <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+        </p>
+        
         <h2>Generate Cards</h2>
         <p id="sheet-query">
-                <input type="text" name="range" id="search_range" placeholder="'Events'!C2:D7"
-                pattern="(?:(?:'[\w\s\d]+')|(?:[\S]+)!)?(?:[\w\d\S]+)(?:[\w\d\S]+)?">
-            <button onclick="loadSheet()">Load Range</button>
+          <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+            <input type="text" name="range" id="search_range" placeholder="'Events'!C2:D7"
+              pattern="(?:(?:'[\w\s\d]+')|(?:[\S]+)!)?(?:[\w\d\S]+)(?:[\w\d\S]+)?">
+          <button onclick="loadSheet()">Load Range</button>
         </p>
 
         <pre id="debug" style="white-space: pre-wrap;"></pre>
@@ -36,103 +35,107 @@
 
         <p>Used to test how the cards will look only.</p>
 
-        <div class="card">
-          <div class="card-name">
-            Grant Name
-            <hr/>
-          </div>
-          <div class="card-effect">
-            Card Effect
-          </div>
-          <div class="renown-gain">
-            <div class="card-renown-text">
-              12
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-name">
+              Grant Name
             </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-name">
-            Tool Name
-            <hr/>
-          </div>
-          <div class="card-effect">
-            Card Effect
-          </div>
-          <div class="tool-card-footer">
-            <div class="eternal-tag">
-              Eternal
+            <div class="card-effect">
+              Card Effect
             </div>
-            <div class="renown-cost">
+            <div class="renown-gain">
               <div class="card-renown-text">
                 12
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="card process">
-          <div class="process-picture"></div>
-          <div class="card-name">
-            Process Name
-          </div>
-          <div class="card-effect">
-            Card Effect
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="engine-container">
-            <div class= "engine-container-row">
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
-              </div>
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
-              </div>
+          <div class="card">
+            <div class="card-name">
+              Tool Name
             </div>
-
-            <div class= "engine-container-row">
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
+            <div class="card-effect">
+              Card Effect
+            </div>
+            <div class="tool-card-footer">
+              <div class="eternal-tag">
+                Eternal
               </div>
-              <div class="engine-space-border">
-                <div class="engine-space">
-                  <div class="elementCircle quicksilver">Q</div>
+              <div class="renown-cost">
+                <div class="card-renown-text">
+                  12
                 </div>
               </div>
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
-              </div>
             </div>
+          </div>
 
-            <div class= "engine-container-row">
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
+          <div class="card">
+            <div class="engine-container">
+              <div class= "engine-container-row">
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
               </div>
-              <div class="engine-space-border">
-                <div class="engine-space"></div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card-name">
-            Product Name
-          </div>
-          <div class="renown-gain">
-            <div class="card-renown-text">
-              12
-            </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="event-picture"></div>
-          <div class="card-name">
-            Event Name
+              <div class= "engine-container-row">
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
+                <div class="engine-space-border">
+                  <div class="engine-space">
+                    <div class="elementCircle quicksilver">Q</div>
+                  </div>
+                </div>
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
+              </div>
+
+              <div class= "engine-container-row">
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
+                <div class="engine-space-border">
+                  <div class="engine-space"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-name">
+              Product Name
+            </div>
+            <div class="renown-gain">
+              <div class="card-renown-text">
+                12
+              </div>
+            </div>
           </div>
-          <div class="card-effect">
-            Card Effect
+
+          <div class="card">
+            <div class="picture event-picture">
+              Placeholder
+            </div>
+            <div class="card-name">
+              Event Name
+            </div>
+            <div class="card-effect">
+              Card Effect
+            </div>
+          </div>
+
+          <div class="card process">
+            <div class="picture process-picture">
+              Placeholder
+            </div>
+            <div class="card-name">
+              Process Name
+            </div>
+            <div class="card-effect">
+              Card Effect
+            </div>
           </div>
         </div>
     </header>
@@ -229,7 +232,7 @@
         if (token !== null) {
           google.accounts.oauth2.revoke(token.access_token);
           gapi.client.setToken('');
-          document.getElementById('content').innerText = '';
+          document.getElementById('debug').innerText = '';
           document.getElementById('authorize_button').innerText = 'Authorize';
           document.getElementById('signout_button').style.visibility = 'hidden';
         }
@@ -255,14 +258,14 @@
             range: input
           })
         } catch (err) {
-          document.getElementById('content').innerText = err.message;
+          document.getElementById('debug').innerText = err.message;
           return;
         }
         const retrievedData = response.result;
 
         // display a message if no data was found
          if (!retrievedData || !retrievedData.values || retrievedData.values.length == 0) {
-          document.getElementById('content').innerText = 'No values found.';
+          document.getElementById('debug').innerText = 'No values found.';
           return;
         }
 
