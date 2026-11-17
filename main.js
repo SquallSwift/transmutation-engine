@@ -141,18 +141,37 @@ function generateProductCard(name, shorthand, renown) {
 
   // create card elements
   const cardName = document.createElement("div");
-  const engineTopRow = document.createElement("div");
-  engineTopRow.setAttribute("class","engine-container-row");
 
-  const engineSpaceBorderLeft = document.createElement("div");
-  engineSpaceBorderLeft.setAttribute("class","engine-space-border");
-  const engineSpaceBorderMiddle = engineSpaceBorderLeft.cloneNode(true);
-  const engineSpaceBorderRight = engineSpaceBorderLeft.cloneNode(true);
+  const cardEngine = document.createElement("div");
+  cardEngine.setAttribute("class","engine-container");
 
-  const engineSpaceLeft = document.createElement("div");
-  engineSpaceLeft.setAttribute("class","engine-space");
-  const engineSpaceMiddle = engineSpaceLeft.cloneNode(true);
-  const engineSpaceRight = engineSpaceLeft.cloneNode(true);
+  const engineSpaceBorderTopLeft = document.createElement("div");
+  engineSpaceBorderTopLeft.setAttribute("class","engine-space-border");
+  const engineSpaceBorderTopRight = engineSpaceBorderTopLeft.cloneNode(true);
+  const engineSpaceBorderRight = engineSpaceBorderTopLeft.cloneNode(true);
+  const engineSpaceBorderBottomRight = engineSpaceBorderTopLeft.cloneNode(true);
+  const engineSpaceBorderBottomLeft = engineSpaceBorderTopLeft.cloneNode(true);
+  const engineSpaceBorderLeft = engineSpaceBorderTopLeft.cloneNode(true);
+  const engineSpaceBorderMiddle = engineSpaceBorderTopLeft.cloneNode(true);
+
+  const engineSpaceTopLeft = document.createElement("div");
+  engineSpaceTopLeft.setAttribute("class","engine-space");
+  const engineSpaceTopRight = engineSpaceTopLeft.cloneNode(true);
+  const engineSpaceRight = engineSpaceTopLeft.cloneNode(true);
+  const engineSpaceBottomRight = engineSpaceTopLeft.cloneNode(true);
+  const engineSpaceBottomLeft = engineSpaceTopLeft.cloneNode(true);
+  const engineSpaceLeft = engineSpaceTopLeft.cloneNode(true);
+  const engineSpaceMiddle = engineSpaceTopLeft.cloneNode(true);
+
+  // get a list of element divs
+  const listOfElements = convertShorthandToArrayOfElements(shorthand);
+  engineSpaceMiddle.appendChild(listOfElements[0]);
+  engineSpaceTopLeft.appendChild(listOfElements[1]);
+  engineSpaceTopRight.appendChild(listOfElements[2]);
+  engineSpaceRight.appendChild(listOfElements[3]);
+  engineSpaceBottomRight.appendChild(listOfElements[4]);
+  engineSpaceBottomLeft.appendChild(listOfElements[5]);
+  engineSpaceLeft.appendChild(listOfElements[6]);
 
   const cardRenownSymbol = document.createElement("div");
   const cardRenownText = document.createElement("div");
@@ -162,23 +181,36 @@ function generateProductCard(name, shorthand, renown) {
   cardRenownText.innerText = renown;
 
   // append engine spaces together
+  engineSpaceBorderTopLeft.appendChild(engineSpaceTopLeft);
+  engineSpaceBorderTopRight.appendChild(engineSpaceTopRight);
+  engineSpaceBorderRight.appendChild(engineSpaceRight);
+  engineSpaceBorderBottomRight.appendChild(engineSpaceBottomRight);
+  engineSpaceBorderBottomLeft.appendChild(engineSpaceBottomLeft);
   engineSpaceBorderLeft.appendChild(engineSpaceLeft);
   engineSpaceBorderMiddle.appendChild(engineSpaceMiddle);
-  engineSpaceBorderRight.appendChild(engineSpaceRight);
 
-  engineTopRow.appendChild(engineSpaceBorderLeft);
-  engineTopRow.appendChild(engineSpaceBorderMiddle);
-
+  const engineTopRow = document.createElement("div");
+  engineTopRow.setAttribute("class","engine-container-row");
   const engineMiddleRow = engineTopRow.cloneNode(true);
+  const engineBottomRow = engineTopRow.cloneNode(true);
+
+  engineTopRow.appendChild(engineSpaceBorderTopLeft);
+  engineTopRow.appendChild(engineSpaceBorderTopRight);
+
+  engineMiddleRow.appendChild(engineSpaceBorderLeft);
+  engineMiddleRow.appendChild(engineSpaceBorderMiddle);
   engineMiddleRow.appendChild(engineSpaceBorderRight);
 
-  const engineBottomRow = engineTopRow.cloneNode(true);
+  engineBottomRow.appendChild(engineSpaceBorderBottomLeft);
+  engineBottomRow.appendChild(engineSpaceBorderBottomRight);
+
+  cardEngine.appendChild(engineTopRow);
+  cardEngine.appendChild(engineMiddleRow);
+  cardEngine.appendChild(engineBottomRow);
 
   // append card elements to the card
   const cardContent = document.createElement("div");
-  cardContent.appendChild(engineTopRow);
-  cardContent.appendChild(engineMiddleRow);
-  cardContent.appendChild(engineBottomRow);
+  cardContent.appendChild(cardEngine);
   cardContent.appendChild(cardName);
   cardContent.appendChild(cardRenownSymbol).appendChild(cardRenownText);
 
@@ -233,19 +265,64 @@ function generateToolCard(name, effect, eternal, renown) {
   cardRenownText.setAttribute("class","card-renown-text");
 }
 
-function convertShorthandToImage(shorthand) {
-  // Shorthand will be written with the centre element's letter, followed by a dash, 
-  // followed by each position that connects to it clockwise, starting from the top left position. 
-  // Spaces mean an empty space.
+function convertShorthandToArrayOfElements(shorthand) {
+  // Shorthand will be written with the centre element's letter followed by each 
+  // position that connects to it clockwise, starting from the top left position. 
+  // Spaces means there is no element to be added.
 
-  // grab each element of the shorthand into its own variable
-  let centralElement = shorthand[0];
-  let topLeftElement = shorthand[2];
-  let topRightElement = shorthand[3];
-  let rightElement = shorthand[4];
-  let bottomRightElement = shorthand[5];
-  let bottomLeftElement = shorthand[6];
-  let leftElement = shorthand[7];
+  const element = document.createElement("div");
+  const emptySlot = document.createElement("div");
+  const listOfElements = [];
 
-  // dynamically create each element as a coloured circle
+  // loop through each letter of the shorthand and identify which element needs to be added
+  for (let i = 0; i < shorthand.length; i++) {
+    element.innerText = shorthand.charAt(i)
+
+    if (shorthand.charAt(i) == ".") {
+      let clonedEmptySlot = emptySlot.cloneNode(true);
+      listOfElements.push(clonedEmptySlot);
+    } else {
+      switch (shorthand.charAt(i)) {
+       case "Q":
+         element.setAttribute("class","elementCircle quicksilver");
+         break;
+       case "F":
+         element.setAttribute("class","elementCircle fire");
+         break;
+       case "A":
+         element.setAttribute("class","elementCircle air");
+         break;
+       case "W":
+         element.setAttribute("class","elementCircle water");
+         break;
+       case "E":
+         element.setAttribute("class","elementCircle earth");
+         break;
+       case "L":
+         element.setAttribute("class","elementCircle lead");
+         break;
+       case "T":
+         element.setAttribute("class","elementCircle tin");
+         break;
+       case "I":
+         element.setAttribute("class","elementCircle iron");
+         break;
+       case "C":
+         element.setAttribute("class","elementCircle copper");
+         break;
+       case "S":
+         element.setAttribute("class","elementCircle silver");
+         break;
+       case "G":
+         element.setAttribute("class","elementCircle gold");
+         break;
+       default:
+         document.getElementById('debug').innerText = "Element " + i + ":  " + shorthand.charAt(i) + " not recognised.";
+      }
+      let clonedElement = element.cloneNode(true);
+      listOfElements.push(clonedElement);
+    }
+  }
+
+  return listOfElements;
 }
